@@ -20,7 +20,7 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: libreoffice.SlackBuild,v 1.1 2011/03/20 10:47:29 gsotirov Exp $
+# $Id: libreoffice.SlackBuild,v 1.2 2011/03/21 22:21:29 gsotirov Exp $
 #
 
 . ../slack-package.conf
@@ -103,7 +103,7 @@ mv opt $PKG
 echo "[Step 3 of 7] Desktop integration..."
 cd $SRC/RPMS/desktop-integration
 # RPM name libreoffice3.3-redhat-menus-3.3-8.noarch.rpm
-unrpm ${NAME}${VERSION_MAJOR}.${VERSION_MINOR}-redhat-menus-${VERSION_MAJOR}.${VERSION_MINOR}-8.noarch.rpm
+unrpm ${NAME}${VERSION_MAJOR}.${VERSION_MINOR}-redhat-menus-${VERSION_MAJOR}.${VERSION_MINOR}-*.noarch.rpm
 mv usr $PKG
 
 ( cd $PKG/usr/bin
@@ -137,6 +137,7 @@ DOCFILES="$DOCFILES LICENSE*"
 echo "[Step 5 of 7] Creating the documentation for $NAME-$VERSION..."
 ( cd $PKG/opt/${NAME}         ; create_docs $PKG $NAME-$LOCALE-$VERSION )
 ( cd $PKG/opt/${NAME}/readmes ; create_docs $PKG $NAME-$LOCALE-$VERSION )
+( cd $PKG/usr/doc/$NAME-$LOCALE-$VERSION; cp README_$LOCALE README )
 install -m 644 $CWD/LGPLLIC $PKG/usr/doc/${NAME}-${LOCALE}-${VERSION}/COPYING
 
 # Create service infos
@@ -144,7 +145,7 @@ echo "[Step 6 of 7] Creating package's service information..."
 cd $PKG
 install -m 755 -d $PKG/install
 install -m 644 $CWD/doinst.sh      $PKG/install/doinst.sh
-install -m 644 $CWD/slack-desc     $PKG/install/slack-desc
+cat $CWD/slack-desc | sed s/LC/$LOCALE/g > $PKG/install/slack-desc
 install -m 644 $CWD/slack-required $PKG/install/slack-required
 install -m 644 $CWD/slack-suggests $PKG/install/slack-suggests
 
