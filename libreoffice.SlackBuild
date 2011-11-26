@@ -20,7 +20,7 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: libreoffice.SlackBuild,v 1.3 2011/11/26 15:15:53 gsotirov Exp $
+# $Id: libreoffice.SlackBuild,v 1.4 2011/11/26 19:58:13 gsotirov Exp $
 #
 
 . ../../slack-package.conf
@@ -36,7 +36,11 @@ LOCALE='en-US'
 
 CWD=${CWD:-`pwd`}
 TMP=${TMP:-/tmp}
-ARCH=${ARCH_OO:-i686}
+ARCH=${ARCH:-i686}
+
+if [ "$ARCH" = "i386" -o "$ARCH" = "i486" -o "$ARCH" = "i686" ]; then
+  ARCH="i686"
+fi
 
 function unrpm() {
   rpm2cpio < $1 | cpio --extract --make-directories --unconditional --preserve-modification-time
@@ -108,7 +112,7 @@ mv usr $PKG
 
 ( cd $PKG/usr/bin
   rm -rf soffice
-  ln -sf /opt/${NAME}${VERSION_MAJOR}/program/soffice soffice )
+  ln -sf /opt/${NAME}/program/soffice soffice )
 
 rm -rf $PKG/usr/share/application-registry
 rm -rf $PKG/usr/share/applnk-redhat
