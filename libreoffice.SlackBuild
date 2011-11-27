@@ -20,7 +20,7 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: libreoffice.SlackBuild,v 1.5 2011/11/27 08:25:41 gsotirov Exp $
+# $Id: libreoffice.SlackBuild,v 1.6 2011/11/27 09:11:43 gsotirov Exp $
 #
 
 . ../../slack-package.conf
@@ -107,6 +107,8 @@ mv opt $PKG
 echo "[Step 3 of 7] Desktop integration..."
 cd $SRC/RPMS/desktop-integration
 # RPM name libreoffice3.4-redhat-menus-3.4-402.noarch.rpm
+echo -n ${NAME}${VERSION_MAJOR}.${VERSION_MINOR}-redhat-menus-${VERSION_MAJOR}.${VERSION_MINOR}-*.noarch.rpm
+echo -n ": "
 unrpm ${NAME}${VERSION_MAJOR}.${VERSION_MINOR}-redhat-menus-${VERSION_MAJOR}.${VERSION_MINOR}-*.noarch.rpm
 mv usr $PKG
 
@@ -134,9 +136,9 @@ bin_perms $PKG
 # Create documentation
 DOCFILES="$DOCFILES LICENSE*"
 echo "[Step 5 of 7] Creating the documentation for $NAME-$VERSION..."
-( cd $PKG/opt/${NAME}         ; create_docs $PKG $NAME-$LOCALE-$VERSION )
-( cd $PKG/opt/${NAME}/readmes ; create_docs $PKG $NAME-$LOCALE-$VERSION )
-( cd $PKG/usr/doc/$NAME-$LOCALE-$VERSION; cp README_$LOCALE README )
+( cd $PKG/opt/${NAME}${VERSION_MAJOR}.${VERSION_MINOR}         ; create_docs $PKG $NAME-$LOCALE-$VERSION )
+( cd $PKG/opt/${NAME}${VERSION_MAJOR}.${VERSION_MINOR}/readmes ; create_docs $PKG $NAME-$LOCALE-$VERSION )
+( cd $PKG/usr/doc/$NAME-$LOCALE-$VERSION; ln -s README_$LOCALE README )
 install -m 644 $CWD/LGPLLIC $PKG/usr/doc/${NAME}-${LOCALE}-${VERSION}/COPYING
 
 # Create service infos
