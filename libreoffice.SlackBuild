@@ -20,15 +20,15 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: libreoffice.SlackBuild,v 1.6 2011/11/27 09:11:43 gsotirov Exp $
+# $Id: libreoffice.SlackBuild,v 1.7 2012/04/16 18:10:23 gsotirov Exp $
 #
 
 . ../../slack-package.conf
 
 NAME=libreoffice
 VERSION_MAJOR=3
-VERSION_MINOR=4
-VERSION_PATCH=4
+VERSION_MINOR=5
+VERSION_PATCH=2
 VERSION_RC='rc2'
 VERSION=$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH
 BUILD=${BUILD:-1}
@@ -58,8 +58,8 @@ if [ $? -ne 0 ]; then
   exit 2
 fi
 
-# Source pkg format: LibO_3.4.4_Linux_x86_install-rpm_en-US.tar.gz
-# Source dir format: LibO_3.4.4rc2_Linux_x86_install-rpm_en-US
+# Source pkg format: LibO_3.5.2_Linux_x86_install-rpm_en-US.tar.gz
+# Source dir format: LibO_3.5.2rc2_Linux_x86_install-rpm_en-US
 if [ "$ARCH" == "i686" ]; then
   PACK_NAME="LibO_${VERSION}_Linux_x86_install-rpm_${LOCALE}"
   SRC_DIR="LibO_${VERSION}${VERSION_RC}_Linux_x86_install-rpm_${LOCALE}"
@@ -106,18 +106,18 @@ mv opt $PKG
 
 echo "[Step 3 of 7] Desktop integration..."
 cd $SRC/RPMS/desktop-integration
-# RPM name libreoffice3.4-redhat-menus-3.4-402.noarch.rpm
-echo -n ${NAME}${VERSION_MAJOR}.${VERSION_MINOR}-redhat-menus-${VERSION_MAJOR}.${VERSION_MINOR}-*.noarch.rpm
+# RPM name libreoffice3.5-mandriva-menus-3.5-202.noarch.rpm
+MENUS_PKG=${NAME}${VERSION_MAJOR}.${VERSION_MINOR}-mandriva-menus-${VERSION_MAJOR}.${VERSION_MINOR}-*.noarch.rpm
+echo -n $MENUS_PKG
 echo -n ": "
-unrpm ${NAME}${VERSION_MAJOR}.${VERSION_MINOR}-redhat-menus-${VERSION_MAJOR}.${VERSION_MINOR}-*.noarch.rpm
+unrpm $MENUS_PKG
 mv usr $PKG
 
 ( cd $PKG/usr/bin
   rm -rf soffice
   ln -sf /opt/${NAME}${VERSION_MAJOR}.${VERSION_MINOR}/program/soffice soffice )
 
-rm -rf $PKG/usr/share/application-registry
-rm -rf $PKG/usr/share/applnk-redhat
+rm -rf $PKG/usr/lib/menu
 
 rm -rf $PKG/usr/share/applications/*.desktop
 cd $PKG/opt/${NAME}${VERSION_MAJOR}.${VERSION_MINOR}/share/xdg
