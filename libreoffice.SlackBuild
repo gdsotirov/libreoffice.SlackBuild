@@ -20,7 +20,7 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: libreoffice.SlackBuild,v 1.8 2012/06/24 20:40:12 gsotirov Exp $
+# $Id: libreoffice.SlackBuild,v 1.9 2012/06/30 19:46:26 gsotirov Exp $
 #
 
 . ../../slack-package.conf
@@ -106,8 +106,8 @@ mv opt $PKG
 
 echo "[Step 3 of 7] Desktop integration..."
 cd $SRC/RPMS/desktop-integration
-# RPM name libreoffice3.5-mandriva-menus-3.5-202.noarch.rpm
-MENUS_PKG=${NAME}${VERSION_MAJOR}.${VERSION_MINOR}-mandriva-menus-${VERSION_MAJOR}.${VERSION_MINOR}-*.noarch.rpm
+# RPM name libreoffice3.5-mandriva-menus-3.5.4-2.noarch.rpm
+MENUS_PKG=${NAME}${VERSION_MAJOR}.${VERSION_MINOR}-mandriva-menus-${VERSION_MAJOR}.${VERSION_MINOR}*.noarch.rpm
 echo -n $MENUS_PKG
 echo -n ": "
 unrpm $MENUS_PKG
