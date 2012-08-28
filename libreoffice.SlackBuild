@@ -20,7 +20,7 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: libreoffice.SlackBuild,v 1.9 2012/06/30 19:46:26 gsotirov Exp $
+# $Id: libreoffice.SlackBuild,v 1.10 2012/08/28 18:40:53 gsotirov Exp $
 #
 
 . ../../slack-package.conf
@@ -28,7 +28,7 @@
 NAME=libreoffice
 VERSION_MAJOR=3
 VERSION_MINOR=5
-VERSION_PATCH=4
+VERSION_PATCH=6
 VERSION_RC='rc2'
 VERSION=$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH
 BUILD=${BUILD:-1}
@@ -58,8 +58,8 @@ if [ $? -ne 0 ]; then
   exit 2
 fi
 
-# Source pkg format: LibO_3.5.2_Linux_x86_install-rpm_en-US.tar.gz
-# Source dir format: LibO_3.5.2rc2_Linux_x86_install-rpm_en-US
+# Source pkg format: LibO_3.5.6_Linux_x86_install-rpm_en-US.tar.gz
+# Source dir format: LibO_3.5.6rc2_Linux_x86_install-rpm_en-US
 if [ "$ARCH" == "i686" ]; then
   PACK_NAME="LibO_${VERSION}_Linux_x86_install-rpm_${LOCALE}"
   SRC_DIR="LibO_${VERSION}${VERSION_RC}_Linux_x86_install-rpm_${LOCALE}"
