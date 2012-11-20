@@ -1,5 +1,4 @@
 GConf >= 3.2.5
-ORBit2 >= 2.14.19
 atk >= 2.4.0
 bash >= 4.2.037
 bzip2 >= 1.0.6
@@ -18,7 +17,6 @@ gcc >= 4.7.1
 gdk-pixbuf2 >= 2.26.1
 glib2 >= 2.32.4
 glibc-solibs >= 2.15
-gnome-vfs >= 2.24.4
 grep >= 2.7
 gst-plugins-base >= 0.10.36
 gstreamer >= 0.10.36
