@@ -20,16 +20,16 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: libreoffice.SlackBuild,v 1.11 2012/11/17 20:10:16 gsotirov Exp $
+# $Id: libreoffice.SlackBuild,v 1.12 2012/11/20 16:32:58 gsotirov Exp $
 #
 
 . ../../slack-package.conf
 
 NAME=libreoffice
 VERSION_MAJOR=3
-VERSION_MINOR=5
-VERSION_PATCH=7
-VERSION_RC='rc2'
+VERSION_MINOR=6
+VERSION_PATCH=3
+VERSION_RC='2'
 VERSION=$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH
 BUILD=${BUILD:-1}
 LOCALE='en-US'
@@ -62,13 +62,13 @@ fi
 # Source dir format: LibO_3.5.6rc2_Linux_x86_install-rpm_en-US
 if [ "$ARCH" == "i686" ]; then
   PACK_NAME="LibO_${VERSION}_Linux_x86_install-rpm_${LOCALE}"
-  SRC_DIR="LibO_${VERSION}${VERSION_RC}_Linux_x86_install-rpm_${LOCALE}"
+  SRC_DIR="LibO_${VERSION}.${VERSION_RC}_Linux_x86_install-rpm_${LOCALE}"
 elif [ "$ARCH" == "x86_64" ]; then
   PACK_NAME="LibO_${VERSION}_Linux_x86-64_install-rpm_${LOCALE}"
-  SRC_DIR="LibO_${VERSION}${VERSION_RC}_Linux_x86-64_install-rpm_${LOCALE}"
+  SRC_DIR="LibO_${VERSION}.${VERSION_RC}_Linux_x86-64_install-rpm_${LOCALE}"
 else
   PACK_NAME="LibO_${VERSION}_Linux_${ARCH}_install-rpm_${LOCALE}"
-  SRC_DIR="LibO_${VERSION}${VERSION_RC}_Linux_${ARCH}_install-rpm_${LOCALE}"
+  SRC_DIR="LibO_${VERSION}.${VERSION_RC}_Linux_${ARCH}_install-rpm_${LOCALE}"
 fi
 
 SRC=$TMP/$SRC_DIR
