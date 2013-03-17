@@ -7,7 +7,9 @@ coreutils >= 8.19
 curl >= 7.27.0
 cxxlibs >= 6.0.17 | gcc-g++ >= 4.7.1
 db42 >= 4.2.52
-db44 >= 4.4.20 dbus >= 1.4.20 dbus-glib >= 0.98
+db44 >= 4.4.20
+dbus >= 1.4.20
+dbus-glib >= 0.98
 e2fsprogs >= 1.42.6
 expat >= 2.0.1
 findutils >= 4.4.2
