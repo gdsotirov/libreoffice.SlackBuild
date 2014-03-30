@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # Slackware build script for LibreOffice
-# Copyright (C) 2011 Georgi D. Sotirov <gdsotirov@dir.bg>
+# Copyright (C) 2011-2014 Georgi D. Sotirov <gdsotirov@dir.bg>
 # The source packages are retrieved from ftp://ftp.spnet.net/ooo-bg/
 #
 # This program is free software; you can redistribute it and/or
@@ -20,15 +20,15 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: libreoffice.SlackBuild,v 1.16 2014/03/30 14:50:01 gsotirov Exp $
+# $Id: libreoffice.SlackBuild,v 1.17 2014/03/30 18:12:02 gsotirov Exp $
 #
 
 . ../../slack-package.conf
 
 NAME=libreoffice
-VERSION_MAJOR=3
-VERSION_MINOR=6
-VERSION_PATCH=7
+VERSION_MAJOR=4
+VERSION_MINOR=0
+VERSION_PATCH=6
 VERSION_RC='2'
 VERSION=$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH
 BUILD=${BUILD:-1}
@@ -58,17 +58,17 @@ if [ $? -ne 0 ]; then
   exit 2
 fi
 
-# Source pkg format: LibO_3.5.6_Linux_x86_install-rpm_en-US.tar.gz
-# Source dir format: LibO_3.5.6rc2_Linux_x86_install-rpm_en-US
+# Source pkg format: LibreOffice_4.0.5_Linux_x86_rpm.tar.gz
+# Source dir format: LibreOffice_4.0.5.2_Linux_x86_rpm
 if [ "$ARCH" == "i686" ]; then
-  PACK_NAME="LibO_${VERSION}_Linux_x86_install-rpm_${LOCALE}"
-  SRC_DIR="LibO_${VERSION}.${VERSION_RC}_Linux_x86_install-rpm_${LOCALE}"
+  PACK_NAME="LibreOffice_${VERSION}_Linux_x86_rpm"
+  SRC_DIR="LibreOffice_${VERSION}.${VERSION_RC}_Linux_x86_rpm"
 elif [ "$ARCH" == "x86_64" ]; then
-  PACK_NAME="LibO_${VERSION}_Linux_x86-64_install-rpm_${LOCALE}"
-  SRC_DIR="LibO_${VERSION}.${VERSION_RC}_Linux_x86-64_install-rpm_${LOCALE}"
+  PACK_NAME="LibreOffice_${VERSION}_Linux_x86-64_rpm_${LOCALE}"
+  SRC_DIR="LibreOffice_${VERSION}.${VERSION_RC}_Linux_x86-64_rpm_${LOCALE}"
 else
-  PACK_NAME="LibO_${VERSION}_Linux_${ARCH}_install-rpm_${LOCALE}"
-  SRC_DIR="LibO_${VERSION}.${VERSION_RC}_Linux_${ARCH}_install-rpm_${LOCALE}"
+  PACK_NAME="LibreOffice_${VERSION}_Linux_${ARCH}_rpm_${LOCALE}"
+  SRC_DIR="LibreOffice_${VERSION}.${VERSION_RC}_Linux_${ARCH}_rpm_${LOCALE}"
 fi
 
 SRC=$TMP/$SRC_DIR
