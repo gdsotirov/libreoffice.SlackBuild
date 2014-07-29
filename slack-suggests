@@ -1,11 +1,10 @@
-ORBit2 >= 2.14.19
 avahi >= 0.6.31
-gnome-vfs >= 2.24.4
 jre >= 6u25
-kdelibs >= 4.8.5
-kdepimlibs >= 4.8.5
+kdelibs >= 4.10.5
+kdepimlibs >= 4.10.5
+mozilla-nss >= 3.16
 mysql-connector-odbc >= 5.1
-perl >= 5.16.3
-python >= 2.7.3
+perl >= 5.18.1
+python >= 2.7.5
 qt3 >= 3.3
 unixodbc >= 2.3.1
