@@ -20,7 +20,7 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: libreoffice.SlackBuild,v 1.17 2014/03/30 18:12:02 gsotirov Exp $
+# $Id: libreoffice.SlackBuild,v 1.18 2014/07/29 18:24:42 gsotirov Exp $
 #
 
 . ../../slack-package.conf
@@ -64,11 +64,11 @@ if [ "$ARCH" == "i686" ]; then
   PACK_NAME="LibreOffice_${VERSION}_Linux_x86_rpm"
   SRC_DIR="LibreOffice_${VERSION}.${VERSION_RC}_Linux_x86_rpm"
 elif [ "$ARCH" == "x86_64" ]; then
-  PACK_NAME="LibreOffice_${VERSION}_Linux_x86-64_rpm_${LOCALE}"
-  SRC_DIR="LibreOffice_${VERSION}.${VERSION_RC}_Linux_x86-64_rpm_${LOCALE}"
+  PACK_NAME="LibreOffice_${VERSION}_Linux_x86-64_rpm"
+  SRC_DIR="LibreOffice_${VERSION}.${VERSION_RC}_Linux_x86-64_rpm"
 else
-  PACK_NAME="LibreOffice_${VERSION}_Linux_${ARCH}_rpm_${LOCALE}"
-  SRC_DIR="LibreOffice_${VERSION}.${VERSION_RC}_Linux_${ARCH}_rpm_${LOCALE}"
+  PACK_NAME="LibreOffice_${VERSION}_Linux_${ARCH}_rpm"
+  SRC_DIR="LibreOffice_${VERSION}.${VERSION_RC}_Linux_${ARCH}_rpm"
 fi
 
 SRC=$TMP/$SRC_DIR
@@ -136,34 +136,34 @@ bin_perms $PKG
 # Create documentation
 DOCFILES="$DOCFILES LICENSE*"
 echo "[Step 5 of 7] Creating the documentation for $NAME-$VERSION..."
-( cd $PKG/opt/${NAME}${VERSION_MAJOR}.${VERSION_MINOR}         ; create_docs $PKG $NAME-$LOCALE-$VERSION )
-( cd $PKG/opt/${NAME}${VERSION_MAJOR}.${VERSION_MINOR}/readmes ; create_docs $PKG $NAME-$LOCALE-$VERSION )
-( cd $PKG/usr/doc/$NAME-$LOCALE-$VERSION; ln -s README_$LOCALE README )
-install -m 644 $CWD/LGPLLIC $PKG/usr/doc/${NAME}-${LOCALE}-${VERSION}/COPYING
+( cd $PKG/opt/${NAME}${VERSION_MAJOR}.${VERSION_MINOR}         ; create_docs $PKG $NAME-$VERSION )
+( cd $PKG/opt/${NAME}${VERSION_MAJOR}.${VERSION_MINOR}/readmes ; create_docs $PKG $NAME-$VERSION )
+( cd $PKG/usr/doc/$NAME-$VERSION; mv README_$LOCALE README )
+install -m 644 $CWD/LGPLLIC $PKG/usr/doc/${NAME}-${VERSION}/COPYING
 
 # Create service infos
 echo "[Step 6 of 7] Creating package's service information..."
 cd $PKG
 install -m 755 -d $PKG/install
 install -m 644 $CWD/doinst.sh      $PKG/install/doinst.sh
-cat $CWD/slack-desc | sed s/LC/$LOCALE/g > $PKG/install/slack-desc
+#cat $CWD/slack-desc | sed s/LC/$LOCALE/g > $PKG/install/slack-desc
 install -m 644 $CWD/slack-required $PKG/install/slack-required
 install -m 644 $CWD/slack-suggests $PKG/install/slack-suggests
 
-install -m 755 -d $PKG/usr/src/slackbuilds/$NAME-$LOCALE-$VERSION
-install -m 644 $CWD/doinst.sh        $PKG/usr/src/slackbuilds/$NAME-$LOCALE-$VERSION/doinst.sh
-install -m 644 $CWD/slack-desc       $PKG/usr/src/slackbuilds/$NAME-$LOCALE-$VERSION/slack-desc
-install -m 644 $CWD/slack-required   $PKG/usr/src/slackbuilds/$NAME-$LOCALE-$VERSION/slack-required
-install -m 644 $CWD/slack-suggests   $PKG/usr/src/slackbuilds/$NAME-$LOCALE-$VERSION/slack-suggests
-install -m 644 $CWD/$NAME.SlackBuild $PKG/usr/src/slackbuilds/$NAME-$LOCALE-$VERSION/$NAME-$LOCALE.SlackBuild
+install -m 755 -d $PKG/usr/src/slackbuilds/$NAME-$VERSION
+install -m 644 $CWD/doinst.sh          $PKG/usr/src/slackbuilds/$NAME-$VERSION/doinst.sh
+install -m 644 $CWD/slack-desc         $PKG/usr/src/slackbuilds/$NAME-$VERSION/slack-desc
+install -m 644 $CWD/slack-required     $PKG/usr/src/slackbuilds/$NAME-$VERSION/slack-required
+install -m 644 $CWD/slack-suggests     $PKG/usr/src/slackbuilds/$NAME-$VERSION/slack-suggests
+install -m 644 $CWD/${NAME}.SlackBuild $PKG/usr/src/slackbuilds/$NAME-$VERSION/${NAME}.SlackBuild
 
 # Make the package
 echo "[Step 7 of 7] Creating package $NAME-$VERSION..."
 cd $PKG
-makepkg -l y -c n -p $PKG_DIR/$NAME-$LOCALE-$VERSION-$ARCH-$BUILD$MYIN.txz
+makepkg -l y -c n -p $PKG_DIR/$NAME-$VERSION-$ARCH-$BUILD$MYIN.txz
 cd $PKG_DIR
-cp $CWD/slack-desc $NAME-$LOCALE-$VERSION-$ARCH-$BUILD$MYIN.txt
-md5sum $NAME-$LOCALE-$VERSION-$ARCH-$BUILD$MYIN.txz > $NAME-$LOCALE-$VERSION-$ARCH-$BUILD$MYIN.txz.md5
+cp $CWD/slack-desc $NAME-$VERSION-$ARCH-$BUILD$MYIN.txt
+md5sum $NAME-$VERSION-$ARCH-$BUILD$MYIN.txz > $NAME-$VERSION-$ARCH-$BUILD$MYIN.txz.md5
 
 # Clean up (optionally)
 if [ "$1" = "--cleanup" ]; then
