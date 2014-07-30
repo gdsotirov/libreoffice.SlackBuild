@@ -20,7 +20,7 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: libreoffice.SlackBuild,v 1.20 2014/07/30 20:44:37 gsotirov Exp $
+# $Id: libreoffice.SlackBuild,v 1.21 2014/07/30 20:54:34 gsotirov Exp $
 #
 
 . ../../slack-package.conf
@@ -138,7 +138,6 @@ echo "[Step 6 of 7] Creating package's service information..."
 cd $PKG
 install -m 755 -d $PKG/install
 install -m 644 $CWD/doinst.sh      $PKG/install/doinst.sh
-#cat $CWD/slack-desc | sed s/LC/$LOCALE/g > $PKG/install/slack-desc
 install -m 644 $CWD/slack-required $PKG/install/slack-required
 install -m 644 $CWD/slack-suggests $PKG/install/slack-suggests
 
