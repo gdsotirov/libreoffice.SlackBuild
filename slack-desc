@@ -1,13 +1,13 @@
-libreoffice-LC: LibreOffice (A free personal office productivity suite)
-libreoffice-LC:
-libreoffice-LC: LibreOffice is the free power-packed Open Source personal
-libreoffice-LC: productivity suite for Windows, Macintosh and Linux, that
-libreoffice-LC: gives you six feature-rich applications for all your
-libreoffice-LC: document production and data processing needs: Writer,
-libreoffice-LC: Calc, Impress, Draw, Math and Base.  Support and
-libreoffice-LC: documentation is free from the large, dedicated community
-libreoffice-LC: of users, contributors and developers. You, too, can also
-libreoffice-LC: get involved!
-libreoffice-LC: LibreOffice is provided by The Document Foundation.
-libreoffice-LC:
-libreoffice-LC: Packaged by Georgi D. Sotirov <gdsotirov@dir.bg>
+libreoffice: LibreOffice (A free personal office productivity suite)
+libreoffice:
+libreoffice: LibreOffice is the free power-packed Open Source personal
+libreoffice: productivity suite for Windows, Macintosh and Linux, that
+libreoffice: gives you six feature-rich applications for all your
+libreoffice: document production and data processing needs: Writer,
+libreoffice: Calc, Impress, Draw, Math and Base.  Support and
+libreoffice: documentation is free from the large, dedicated community
+libreoffice: of users, contributors and developers. You, too, can also
+libreoffice: get involved!
+libreoffice: LibreOffice is provided by The Document Foundation.
+libreoffice:
+libreoffice: Packaged by Georgi D. Sotirov <gdsotirov@dir.bg>
