@@ -20,15 +20,15 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: libreoffice.SlackBuild,v 1.21 2014/07/30 20:54:34 gsotirov Exp $
+# $Id: libreoffice.SlackBuild,v 1.22 2014/07/31 18:59:39 gsotirov Exp $
 #
 
 . ../../slack-package.conf
 
 NAME=libreoffice
 VERSION_MAJOR=4
-VERSION_MINOR=1
-VERSION_PATCH=6
+VERSION_MINOR=2
+VERSION_PATCH=5
 VERSION_RC='2'
 VERSION=$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH
 BUILD=${BUILD:-1}
@@ -105,13 +105,11 @@ done
 mv opt $PKG
 
 echo "[Step 3 of 7] Desktop integration..."
+install -d -m 755 $PKG/usr/bin
 ( cd $PKG/usr/bin
-  rm -rf soffice
-  ln -sf /opt/${NAME}${VERSION_MAJOR}.${VERSION_MINOR}/program/soffice soffice )
+  ln -sf ../../opt/${NAME}${VERSION_MAJOR}.${VERSION_MINOR}/program/soffice soffice )
 
-rm -rf $PKG/usr/lib/menu
-
-rm -rf $PKG/usr/share/applications/*.desktop
+install -d -m 755 $PKG/usr/share/applications
 cd $PKG/opt/${NAME}${VERSION_MAJOR}.${VERSION_MINOR}/share/xdg
 for FILE in *.desktop; do
   install -m 644 $FILE $PKG/usr/share/applications/${NAME}-${FILE}
