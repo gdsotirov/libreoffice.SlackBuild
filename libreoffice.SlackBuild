@@ -20,16 +20,16 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: libreoffice.SlackBuild,v 1.26 2014/11/26 17:51:49 gsotirov Exp $
+# $Id: libreoffice.SlackBuild,v 1.27 2015/02/21 07:08:48 gsotirov Exp $
 #
 
 . ../../slack-package.conf
 
 NAME=libreoffice
 VERSION_MAJOR=4
-VERSION_MINOR=3
-VERSION_PATCH=4
-VERSION_RC='1'
+VERSION_MINOR=4
+VERSION_PATCH=0
+VERSION_RC='3'
 VERSION=$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH
 BUILD=${BUILD:-1}
 LOCALE='en-US'
@@ -57,9 +57,9 @@ if [ $? -ne 0 ]; then
   echo "Utility 'cpio' is missing. Please, install the package 'cpio' in order to continue."
   exit 2
 fi
-
-# Source pkg format: LibreOffice_4.0.5_Linux_x86_rpm.tar.gz
-# Source dir format: LibreOffice_4.0.5.2_Linux_x86_rpm
+ 
+# Source pkg format: LibreOffice_4.4.0_Linux_x86_rpm.tar.gz
+# Source dir format: LibreOffice_4.4.0.3_Linux_x86_rpm
 if [ "$ARCH" == "i686" ]; then
   PACK_NAME="LibreOffice_${VERSION}_Linux_x86_rpm"
   SRC_DIR="LibreOffice_${VERSION}.${VERSION_RC}_Linux_x86_rpm"
