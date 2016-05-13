@@ -20,7 +20,7 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: libreoffice.SlackBuild,v 1.36 2016/03/14 17:59:24 gsotirov Exp $
+# $Id: libreoffice.SlackBuild,v 1.37 2016/05/13 17:38:25 gsotirov Exp $
 #
 
 . ../../slack-package.conf
@@ -28,8 +28,8 @@
 NAME=libreoffice
 VERSION_MAJOR=5
 VERSION_MINOR=0
-VERSION_PATCH=5
-VERSION_RC=2
+VERSION_PATCH=6
+VERSION_RC=3
 VERSION=$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH
 BUILD=${BUILD:-1}
 LOCALE='en-US'
