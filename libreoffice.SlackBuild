@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # Slackware build script for LibreOffice
-# Copyright (C) 2011-2015 Georgi D. Sotirov <gdsotirov@dir.bg>
+# Copyright (C) 2011-2016 Georgi D. Sotirov <gdsotirov@dir.bg>
 # The source packages are retrieved from ftp://ftp.spnet.net/ooo-bg/
 #
 # This program is free software; you can redistribute it and/or
@@ -20,26 +20,26 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: libreoffice.SlackBuild,v 1.37 2016/05/13 17:38:25 gsotirov Exp $
+# $Id: libreoffice.SlackBuild,v 1.38 2016/07/12 18:55:19 gsotirov Exp $
 #
 
 . ../../slack-package.conf
 
 NAME=libreoffice
 VERSION_MAJOR=5
-VERSION_MINOR=0
-VERSION_PATCH=6
-VERSION_RC=3
+VERSION_MINOR=1
+VERSION_PATCH=4
+VERSION_RC=2
 VERSION=$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH
 BUILD=${BUILD:-1}
 LOCALE='en-US'
 
 CWD=${CWD:-`pwd`}
 TMP=${TMP:-/tmp}
-ARCH=${ARCH:-i686}
+ARCH=${ARCH:-i586}
 
 if [ "$ARCH" = "i386" -o "$ARCH" = "i486" -o "$ARCH" = "i686" ]; then
-  ARCH="i686"
+  ARCH="i586"
 fi
 
 function unrpm() {
@@ -60,7 +60,7 @@ fi
  
 # Source pkg format: LibreOffice_4.4.0_Linux_x86_rpm.tar.gz
 # Source dir format: LibreOffice_4.4.0.3_Linux_x86_rpm
-if [ "$ARCH" == "i686" ]; then
+if [ "$ARCH" == "i586" ]; then
   PACK_NAME="LibreOffice_${VERSION}_Linux_x86_rpm"
   SRC_DIR="LibreOffice_${VERSION}.${VERSION_RC}_Linux_x86_rpm"
 elif [ "$ARCH" == "x86_64" ]; then
