@@ -1,10 +1,9 @@
 avahi >= 0.6.31
-jre >= 6u25
-kdelibs >= 4.10.5
-kdepimlibs >= 4.10.5
-mozilla-nss >= 3.16
+jre
+kdelibs >= 4.14.21
+kdepimlibs >= 4.14.10
+mozilla-nss >= 3.23
 mysql-connector-odbc >= 5.1
-perl >= 5.18.1
-python >= 2.7.5
-qt3 >= 3.3
-unixodbc >= 2.3.1
+perl >= 5.22.2
+python >= 2.7.11
+unixodbc >= 2.3.4
