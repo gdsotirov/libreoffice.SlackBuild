@@ -1,4 +1,4 @@
-avahi >= 0.6.31
+avahi >= 0.6.32
 jre
 kdelibs >= 4.14.21
 kdepimlibs >= 4.14.10
