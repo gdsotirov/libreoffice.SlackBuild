@@ -3,7 +3,7 @@ jre
 kdelibs >= 4.14.21
 kdepimlibs >= 4.14.10
 mozilla-nss >= 3.23
-mysql-connector-odbc >= 5.1
+mysql-connector-odbc >= 5.3
 perl >= 5.22.2
 python >= 2.7.11
 unixodbc >= 2.3.4
