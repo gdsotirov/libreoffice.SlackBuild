@@ -50,6 +50,7 @@ libdrm >= 2.4.68
 libffi >= 3.2.1
 libidn >= 1.30
 libpng >= 1.6.23
+libunistring >= 0.9.3
 libxcb >= 1.11.1
 libxshmfence >= 1.2
 mesa >= 11.2.2
