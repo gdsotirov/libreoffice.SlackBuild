@@ -1,5 +1,5 @@
 avahi >= 0.6.31
-jre >= 6u25
+jdk
 kdelibs >= 4.10.5
 kdepimlibs >= 4.10.5
 mozilla-nss >= 3.16
