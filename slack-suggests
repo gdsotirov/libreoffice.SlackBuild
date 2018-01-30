@@ -1,7 +1,7 @@
 ORBit2 >= 2.14.19
 avahi >= 0.6.31
 gnome-vfs >= 2.24.4
-jre >= 6u25
+jre | jdk
 kdelibs >= 4.8.5
 kdepimlibs >= 4.8.5
 mysql-connector-odbc >= 5.1
